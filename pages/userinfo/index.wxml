@@ -1,0 +1,46 @@
+<form bindsubmit="formBindsubmit">
+<view class="section">
+<label>姓：</label>
+        <input name="xing" maxlength="2" class="input" style="width:80px" placeholder="" value='{{xing}}' />
+<label>名：</label>
+  <input name="ming" maxlength="2" class="input" style="width:80px" placeholder="" value='{{ming}}'/>
+</view>
+<view class="section">
+<radio-group name="sex"  class="radio-group" >
+<label>性别：</label>
+  <label class="radio" wx:for="{{items}}" wx:key="name">
+    <radio  value="{{item.name}}" checked="{{item.value==sex}}"/>{{item.value}}
+  </label>
+</radio-group>
+</view>
+<view class="section">
+<label>生日：</label>
+  <picker name="date"  mode="date" value="{{date}}" start="1900-01-01" end="2100-01-01"  bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+
+</view>
+<view class="section">
+<label>生时：</label>
+  <picker name="time"  mode="time" value="{{time}}" bindchange="bindTimeChange">
+    <view class="picker">
+      {{time}}
+    </view>
+  </picker>
+
+</view>
+<view class="section">
+<label style='width:100px'>接收邮箱：</label>
+        <input name="email" class="input" maxlength="100" style="width:200px" value='{{email}}' placeholder="" />
+</view>
+<view class="section">
+<button formType="submit" class="button" style="width:80px;height:40px" > 确定 </button>
+</view>
+</form>
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+
+  <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden" >请输入生时信息</toast>

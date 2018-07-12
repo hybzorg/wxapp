@@ -1,0 +1,234 @@
+<import src="../../components/rater/rater.wxml" />
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab" style='margin-bottom: 60rpx'>
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">本日公历日期：</view>
+              <view class="weui-cell__ft">
+                {{GongLi}}
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">本日农历日期：</view>
+              <view class="weui-cell__ft">
+                {{NongLi}}
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">本日干支：</view>
+              <view class="weui-cell__ft">
+                {{GanZhi}}
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-cells__title">当天分项运势综合分数{{55}}</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">事业运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.shiyeyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">财运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.caiyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">姻缘运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.yinyuanyun }}" />
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-article__h3">当日易发生之事象</view>
+          <view class="weui-article__p">
+            {{ShiXiang}}
+          </view>
+          <view class="weui-article__h3">当日心态取向及事象</view>
+          <view class="weui-article__p">
+            {{XinXingShiXiang}}
+          </view>
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">{{WeekDay}}</view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">本周运势综合分数：{{WeekTotalScore}}</view>
+            </view>
+          </view>
+          <view class="container">
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+          </view>
+          <view class="smallline"></view>
+          <view class="weui-cells__title">本周分项运势综合分数：{{TotalScore}}</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">事业运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.zhoushiyeyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">财运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.zhoucaiyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">姻缘运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.zhouyinyuanyun }}" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">{{MonthDate}}</view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">本月运势综合分数：{{MonthTotalScore}}</view>
+            
+            </view>
+          </view>
+
+          <view class="line">本月运气总览</view>
+    <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item bc_name">星期日</view>
+        <view class="flex-item bc_name">星期一</view>
+        <view class="flex-item bc_name">星期二</view>
+        <view class="flex-item bc_name">星期三</view>
+        <view class="flex-item bc_name">星期四</view>
+        <view class="flex-item bc_name">星期五</view>
+        <view class="flex-item bc_name">星期六</view>
+      </view>
+          <view class="grids">
+            <block wx:for="{{grids}}" wx:key="*this">
+              <view class="grid" style="background:{{item.color}}">
+                <text>{{item.value}}</text>
+              </view>
+            </block>
+          </view>
+<view class="line">颜色吉凶说明：<text style="background:#FF0000;">大吉</text><text style="background:#FFA500">中吉</text><text style="background:#FFFF00">小吉</text><text style="background:#008000">平</text><text style="background:#FFFF00">小凶</text><text style="background:#808080">中凶</text><text style="background:#000000;color: #ffffff;">大凶</text></view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">事业运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.yueshiyeyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">财运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.yuecaiyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">姻缘运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.yueyinyuanyun }}" />
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-article__h3">本月易发生之事象</view>
+          <view class="weui-article__p">
+            {{MonthShiXiang}}
+          </view>
+          <view class="weui-article__h3">本月心态取向及事象</view>
+          <view class="weui-article__p">
+            {{MonthXinXingShiXiang}}
+          </view>
+
+
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">{{YearDate}}</view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">本年运势综合分数：{{YearTotalScore}}</view>
+              <view class="weui-cell__ft">
+                {{NongLi}}
+              </view>
+            </view>
+          </view>
+
+          <view class="container">
+            <canvas canvas-id="yearCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+          </view>
+          <view class="smallline"></view>
+
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">事业运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.nianshiyeyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">财运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.niancaiyun }}" />
+              </view>
+            </view>
+            <view class="weui-cell">
+              <view class="weui-cell__bd">姻缘运：</view>
+              <view class="weui-cell__ft">
+                <template is="rater" data="{{ ...$wux.rater.nianyinyuanyun }}" />
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-article__h3">本年易发生之事象</view>
+          <view class="weui-article__p">
+            {{YearShiXiang}}
+          </view>
+          <view class="weui-article__h3">本年心态取向及事象</view>
+          <view class="weui-article__p">
+            {{YearXinXingShiXiang}}
+          </view>
+
+        </view>
+
+
+
+
+      </view>
+    </view>
+  </view>
+
+
+  <view class="footerbar">
+    <button class="button bazibutton" bindtap="prevClick"> {{prev}} </button><button class="button bazibutton" bindtap="nextClick"> {{next}} </button>
+    <button class="button bazibutton" open-type="share"> 分享 </button>
+  </view>
+  <!-- <loading hidden="{{loadingHidden}}">
+  加载中...
+</loading> -->
+
+  <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">{{toastTip}}</toast>
+</view>

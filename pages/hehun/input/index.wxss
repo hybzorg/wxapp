@@ -1,0 +1,11 @@
+@import "/style/common.wxss";
+/* pages/bazi/input.wxss */
+.section {
+  display: flex;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.input{
+    border: 1rpx solid #ccc;
+}

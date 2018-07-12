@@ -1,0 +1,87 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="section__title">姓名：{{xing+ming}} 性别：{{sex}} 出生日期：{{date+ ' ' +time}}</view>
+        <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_name">简体</view>
+      <view class="flex-item bc_name">繁体</view>
+      <view class="flex-item bc_name">拼音</view>
+      <view class="flex-item bc_name">笔划</view>
+      <view class="flex-item bc_name">五行</view>
+      <view class="flex-item bc_name">吉凶</view>
+    </view>
+   <block wx:for="{{Xings}}">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item bc_name">{{item[0]}}</view>
+        <view class="flex-item bc_name">{{item[1]}}</view>
+        <view class="flex-item bc_name">{{item[2]}}</view>
+        <view class="flex-item bc_name">{{item[4]}}</view>
+        <view class="flex-item bc_name">{{item[5]}}</view>
+        <view class="flex-item bc_name">{{item[6]}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Mings}}">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item bc_name">{{item[0]}}</view>
+        <view class="flex-item bc_name">{{item[1]}}</view>
+        <view class="flex-item bc_name">{{item[2]}}</view>
+        <view class="flex-item bc_name">{{item[4]}}</view>
+        <view class="flex-item bc_name">{{item[5]}}</view>
+        <view class="flex-item bc_name">{{item[6]}}</view>
+      </view>
+    </block>
+    <view class="section__title">五格及评分：{{PingFen}}</view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_rating">{{TianGe[0]}}</view>
+      <view class="flex-item bc_rating">{{TianGe[1]}}</view>
+      <view class="flex-item bc_rating">{{TianGe[2]}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_rating">{{RenGe[0]}}</view>
+      <view class="flex-item bc_rating">{{RenGe[1]}}</view>
+      <view class="flex-item bc_rating">{{RenGe[2]}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_rating">{{DiGe[0]}}</view>
+      <view class="flex-item bc_rating">{{DiGe[1]}}</view>
+      <view class="flex-item bc_rating">{{DiGe[2]}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_rating">{{WaiGe[0]}}</view>
+      <view class="flex-item bc_rating">{{WaiGe[1]}}</view>
+      <view class="flex-item bc_rating">{{WaiGe[2]}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_rating">{{ZongGe[0]}}</view>
+      <view class="flex-item bc_rating">{{ZongGe[1]}}</view>
+      <view class="flex-item bc_rating">{{ZongGe[2]}}</view>
+    </view>
+    <view class="section__title">运势</view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_yun" style="width:20%">{{JiChuYun[0]}}</view>
+      <view class="flex-item bc_yun" style="width:70%">{{JiChuYun[1]}}</view>
+      <view class="flex-item bc_yun" style="width:10%">{{JiChuYun[2]}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_yun" style="width:20%">{{ChengGongYun[0]}}</view>
+      <view class="flex-item bc_yun" style="width:70%">{{ChengGongYun[1]}}</view>
+      <view class="flex-item bc_yun" style="width:10%">{{ChengGongYun[2]}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item bc_yun" style="width:20%">{{SheJiaoYun[0]}}</view>
+      <view class="flex-item bc_yun" style="width:70%">{{SheJiaoYun[1]}}</view>
+      <view class="flex-item bc_yun" style="width:10%">{{SheJiaoYun[2]}}</view>
+    </view>
+  </view>
+
+  <view class="footerbar">
+    <button class="button bazibutton" bindtap="openInput"> 输入姓名信息 </button>
+    <button class="button bazibutton" open-type="share"> 分享 </button>
+  </view>
+
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+
+  <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">请输入生时信息</toast>
+
+</view>

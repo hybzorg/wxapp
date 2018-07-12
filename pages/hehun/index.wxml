@@ -1,0 +1,197 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab" style='margin-bottom: 60rpx'>
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class="linesmall"></view>
+          <view class="section__title">姓名：{{xing+ming}} 性别：{{sex}} 出生日期：{{date+ ' ' +time}}</view>
+          <view class="weui-article__h3">一、命局</view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">主星</view>
+            <view class="flex-item bc_content">{{zhuxings[0]}}</view>
+            <view class="flex-item bc_content">{{zhuxings[1]}}</view>
+            <view class="flex-item bc_content">{{zhuxings[2]}}</view>
+            <view class="flex-item bc_content">{{zhuxings[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">天干</view>
+            <view class="flex-item bc_content">{{tiangans[0]}}</view>
+            <view class="flex-item bc_content">{{tiangans[1]}}</view>
+            <view class="flex-item bc_content">{{tiangans[2]}}</view>
+            <view class="flex-item bc_content">{{tiangans[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">地支</view>
+            <view class="flex-item bc_content">{{dizhis[0]}}</view>
+            <view class="flex-item bc_content">{{dizhis[1]}}</view>
+            <view class="flex-item bc_content">{{dizhis[2]}}</view>
+            <view class="flex-item bc_content">{{dizhis[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">藏干</view>
+            <view class="flex-item bc_content">{{canggans[0]}}</view>
+            <view class="flex-item bc_content">{{canggans[1]}}</view>
+            <view class="flex-item bc_content">{{canggans[2]}}</view>
+            <view class="flex-item bc_content">{{canggans[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">副星</view>
+            <view class="flex-item bc_content">{{fuxings[0]}}</view>
+            <view class="flex-item bc_content">{{fuxings[1]}}</view>
+            <view class="flex-item bc_content">{{fuxings[2]}}</view>
+            <view class="flex-item bc_content">{{fuxings[3]}}</view>
+          </view>
+
+          <view class="weui-article__h3">二、大运</view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item grid" style="width:11%">{{daYuns[0]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[1]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[2]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[3]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[4]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[5]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[6]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[7]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[8]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item grid" style="width:11%">{{suis[0]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[1]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[2]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[3]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[4]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[5]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[6]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[7]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[8]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item grid" style="width:11%">{{nians[0]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[1]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[2]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[3]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[4]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[5]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[6]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[7]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[8]}}</view>
+          </view>
+          <view class="weui-article__h3">三、命局简批</view>
+          <view class="weui-article__p">
+            {{huyin}}
+          </view>
+          <view class="weui-article__h3">四、婚姻分析</view>
+          <view class="weui-article__p">
+            {{huyin}}
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="linesmall"></view>
+          <view class="section__title">姓名：{{xing+ming}} 性别：{{sex}} 出生日期：{{date+ ' ' +time}}</view>
+          <view class="weui-article__h3">一、命局</view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">主星</view>
+            <view class="flex-item bc_content">{{zhuxings[0]}}</view>
+            <view class="flex-item bc_content">{{zhuxings[1]}}</view>
+            <view class="flex-item bc_content">{{zhuxings[2]}}</view>
+            <view class="flex-item bc_content">{{zhuxings[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">天干</view>
+            <view class="flex-item bc_content">{{tiangans[0]}}</view>
+            <view class="flex-item bc_content">{{tiangans[1]}}</view>
+            <view class="flex-item bc_content">{{tiangans[2]}}</view>
+            <view class="flex-item bc_content">{{tiangans[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">地支</view>
+            <view class="flex-item bc_content">{{dizhis[0]}}</view>
+            <view class="flex-item bc_content">{{dizhis[1]}}</view>
+            <view class="flex-item bc_content">{{dizhis[2]}}</view>
+            <view class="flex-item bc_content">{{dizhis[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">藏干</view>
+            <view class="flex-item bc_content">{{canggans[0]}}</view>
+            <view class="flex-item bc_content">{{canggans[1]}}</view>
+            <view class="flex-item bc_content">{{canggans[2]}}</view>
+            <view class="flex-item bc_content">{{canggans[3]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item bc_lable">副星</view>
+            <view class="flex-item bc_content">{{fuxings[0]}}</view>
+            <view class="flex-item bc_content">{{fuxings[1]}}</view>
+            <view class="flex-item bc_content">{{fuxings[2]}}</view>
+            <view class="flex-item bc_content">{{fuxings[3]}}</view>
+          </view>
+
+          <view class="weui-article__h3">二、大运</view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item grid" style="width:11%">{{daYuns[0]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[1]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[2]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[3]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[4]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[5]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[6]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[7]}}</view>
+            <view class="flex-item grid" style="width:11%">{{daYuns[8]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item grid" style="width:11%">{{suis[0]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[1]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[2]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[3]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[4]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[5]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[6]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[7]}}</view>
+            <view class="flex-item grid" style="width:11%">{{suis[8]}}</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex-item grid" style="width:11%">{{nians[0]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[1]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[2]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[3]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[4]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[5]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[6]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[7]}}</view>
+            <view class="flex-item grid" style="width:11%">{{nians[8]}}</view>
+          </view>
+          <view class="weui-article__h3">三、命局简批</view>
+          <view class="weui-article__p">
+            {{huyin}}
+          </view>
+          <view class="weui-article__h3">四、婚姻分析</view>
+          <view class="weui-article__p">
+            {{huyin}}
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <block wx:for="{{hehuns}}">
+            <view class="title">{{index+1}})、{{item}}；</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footerbar">
+    <button class="button bazibutton" bindtap="openInput"> 输入双方生时 </button>
+    <button class="button bazibutton" open-type="share"> 分享 </button>
+  </view>
+
+  <!-- <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading> -->
+
+  <toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">请输入生时信息</toast>
+</view>

@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="page">
+  <view>
+    <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for="{{slides}}" wx:key="typeId">
+        <swiper-item>
+          <image src="{{item.picurl}}" class="slide-image" class='slider' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="separate">服务</view>
+  <view class="navs">
+    <block wx:for-items="{{navs}}" wx:key="name">
+      <view class="nav-item" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+        <image src="{{item.icon}}" class="nav-image" />
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="cate-container">
+    <view class="category-title">
+      <image src="/images/redpoint.png"></image>
+      <text class="name">命理文章</text>
+    </view>
+  </view>
+<view class="article_box">
+    <view class="article_list">
+      <block wx:for="{{articles}}">
+        <navigator url="../article/index?url={{item.Url}}">
+          <view class="choice_item">
+            <view class="title">{{item.Title}}</view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+
+</view>

@@ -1,0 +1,62 @@
+<form bindsubmit="formBindsubmit">
+  <view class="section sectionbar">
+    男方生时
+  </view>
+  <view class="section">
+    <label>姓：</label>
+    <input name="xing" class="input" maxlength="2" style="width:80px" />
+    <label>名：</label>
+    <input name="ming" class="input" maxlength="2" style="width:80px" />
+  </view>
+
+  <view class="section">
+    <label>生日：</label>
+    <picker name="date" mode="date" value="{{date}}" start="1900-01-01" end="2100-01-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+
+  </view>
+  <view class="section">
+    <label>生时：</label>
+    <picker name="time" mode="time" value="{{time}}" bindchange="bindTimeChange">
+      <view class="picker">
+        {{time}}
+      </view>
+    </picker>
+
+  </view>
+  <view class="section sectionbar">
+    女方生时
+  </view>
+  <view class="section">
+    <label>姓：</label>
+    <input name="fxing" class="input" maxlength="2" style="width:80px" placeholder="" />
+    <label>名：</label>
+    <input name="fming" class="input" maxlength="2" style="width:80px" placeholder="" />
+  </view>
+
+  <view class="section">
+    <label>生日：</label>
+    <picker name="fdate" mode="date" value="{{fdate}}" start="1900-01-01" end="2100-01-01" bindchange="bindFDateChange">
+      <view class="picker">
+        {{fdate}}
+      </view>
+    </picker>
+
+  </view>
+  <view class="section">
+    <label>生时：</label>
+    <picker name="ftime" mode="time" value="{{ftime}}" bindchange="bindFTimeChange">
+      <view class="picker">
+        {{ftime}}
+      </view>
+    </picker>
+
+  </view>
+  <view class="section">
+    <button formType="submit" class="button" style="width:80px;height:40px"> 确定 </button>
+  </view>
+</form>
+<toast hidden="{{hiddenToast}}" duration="1000" bindchange="toastHidden">请输入生时信息</toast>

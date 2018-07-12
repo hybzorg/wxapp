@@ -1,0 +1,41 @@
+@import "/style/frame.wxss";
+page,
+.page,
+.page__bd{
+    height: 100%;
+    font-size: 30rpx;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    padding-top: 0px;
+    text-align: left;
+}
+.line {
+  height: 40rpx;
+  width: 100%;
+  background-color: #f8f9fa;
+  text-align: left;
+  
+}
+
+.linesmall {
+  height: 1px;
+  width: 100%;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.text {
+  color: #000;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  line-height: 10rpx;
+  font-size: 22rpx;
+  padding-left: 1rpx;
+  
+}
+.flex-wrp {display: flex;height: 24px;}
+.grid {border: 1rpx solid;overflow: hidden;border-color: lightgray;}
+.bc_content {width:22% ;border: 1rpx solid;overflow: hidden;border-color: lightgray;}
+.bc_lable {width:12%;border: 1rpx solid;overflow: hidden;border-color: lightgray; }
