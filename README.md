@@ -10,18 +10,14 @@
 - utils — 存放utils文件，可require引入
 
 ### 测试方法:
+####使用微信开发者工具打开代码
+![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/6.png)
 
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/1.png)
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/2.png)
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/3.png)
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/4.png)
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/5.png)
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/6.png)
- ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/7.png)
+####在云市场购买API
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/8.png)
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/9.png)
- 
-修改根目录下的app.js文件中的requestApi(path, params,message, success)函数中的APPCODE即可查看测试数据，APPCODE可以在洪铟八字算命API上购买，https://market.aliyun.com/products/57126001/cmapi027257.html
+####修改APPCODE
+ 修改根目录下的app.js文件中的requestApi(path, params,message, success)函数中的APPCODE即可查看测试数据，APPCODE可以在洪铟八字算命API上购买，https://market.aliyun.com/products/57126001/cmapi027257.html
 
 requestApi(path, params,message, success){
     var url = "https://openapi.fatebox.cn/"+path;
@@ -33,6 +29,18 @@ requestApi(path, params,message, success){
        // 
     }, success, function(res){});
   },
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/7.png)
+####主面页
+
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/1.png)
+####八字算命 
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/2.png)
+####每天运势
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/3.png)
+####八字合婚
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/4.png)
+####姓名测试
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/5.png)
 
 
 ### 开发环境：
