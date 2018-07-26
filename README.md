@@ -11,6 +11,7 @@
 
 ### 测试方法:
 
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/1.png)
 
 修改根目录下的app.js文件中的requestApi(path, params,message, success)函数中的APPCODE即可查看测试数据，APPCODE可以在洪铟八字算命API上购买，https://market.aliyun.com/products/57126001/cmapi027257.html
 
