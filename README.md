@@ -32,9 +32,8 @@ requestApi(path, params,message, success){
     network.request(url, params, message, {
       'content-type': 'application/json', // 默认值
       'Authorization': "APPCODE 7593766e238740fc81f12e74c68d7b1b",
-      //appcode 可以从洪铟八字算命阿里云商店上购买API后，即可获取。连接：https://market.aliyun.com/products/57126001/cmapi027257.html
-      'X-Ca-Stage':'TEST',
-       // 
+      //'X-Ca-Stage':'TEST',
+       // 测试通道，测试通道使用MOCK，仅作开发测试用，上线后注释掉即可，使用测试通道不需要正式的量。
     }, success, function(res){});
   },
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/7.png)
