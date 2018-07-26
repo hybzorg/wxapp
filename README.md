@@ -25,14 +25,14 @@
 
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/10.png)
 
- 修改根目录下的app.js文件中的requestApi(path, params,message, success)函数中的APPCODE即可查看测试数据，APPCODE可以在洪铟八字算命API上购买，https://market.aliyun.com/products/57126001/cmapi027257.html
+ 修改根目录下的app.js文件中的requestApi(path, params,message, success)函数中的APPCODE即可查看测试数据，APPCODE可以在洪铟八字算命阿里云商店上购买API后，即可获取。连接：https://market.aliyun.com/products/57126001/cmapi027257.html
 
 requestApi(path, params,message, success){
     var url = "https://openapi.fatebox.cn/"+path;
     network.request(url, params, message, {
       'content-type': 'application/json', // 默认值
       'Authorization': "APPCODE 7593766e238740fc81f12e74c68d7b1b",
-      //appcode 可以从洪铟八字算命阿里云商店上购买API后，即可获取。https://market.aliyun.com/products/57126001/cmapi027257.html
+      //appcode 可以从洪铟八字算命阿里云商店上购买API后，即可获取。连接：https://market.aliyun.com/products/57126001/cmapi027257.html
       'X-Ca-Stage':'TEST',
        // 
     }, success, function(res){});
@@ -41,21 +41,21 @@ requestApi(path, params,message, success){
  
 ### 3.4主要面页截图
 修改appcode成功后，刷新，即可正常查看功能，如下图所示：
-#### 主面页
+#### 3.4.1主面页
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/1.png)
-#### 八字算命 
+#### 3.4.2八字算命 
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/2.png)
-#### 每天运势
+#### 3.4.3每天运势
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/3.png)
-#### 八字合婚
+#### 3.4.4八字合婚
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/4.png)
-#### 姓名测试
+#### 3.4.5姓名测试
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/5.png)
 
 
-## 开发环境：
+## 4、开发环境：
 微信开发者工具V1.0.2
 
-## 项目地址：
+## 5、项目地址：
 
 https://github.com/hybzorg/wxapp
