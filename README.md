@@ -14,7 +14,7 @@
 ### 3.1使用微信开发者工具打开代码
 首先把开代码运行后，点首页的八字算命图标进出八字算命功能，然后输入生时后提交，发现出错，查看微信开发者工具的console栏输出，显示“403 (Forbidden)”，如下图所示：
 ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/6.png)
-此错误是因为appcode没有权限，需要购买有效API，可从阿里云市场购买API，获取APPCODE，并修改app.json文件的appcode，即可正常查看。
+此错误是因为appcode没有权限，需要购买有效API，可从阿里云市场购买API，获取APPCODE，并修改app.js文件的appcode，即可正常查看。
 ### 3.2在云市场购买API
 打开阿里云市场地址：https://market.aliyun.com/products/57126001/cmapi027257.html?spm=5176.730005.productlist.d_cmapi027257.PGFO9m#sku=yuncode2125700007
 ，然后完成购买过程，在收到阿里云市场发的邮件，如下图所示：
@@ -22,6 +22,9 @@
  点蓝色连接，进入阿里云市场后台可查看APPCODE，如下图所示：
  ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/9.png)
 ### 3.3修改APPCODE
+
+ ![image](https://github.com/hybzorg/wxapp/blob/master/shotcup/10.png)
+
  修改根目录下的app.js文件中的requestApi(path, params,message, success)函数中的APPCODE即可查看测试数据，APPCODE可以在洪铟八字算命API上购买，https://market.aliyun.com/products/57126001/cmapi027257.html
 
 requestApi(path, params,message, success){
