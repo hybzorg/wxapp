@@ -4,6 +4,9 @@
 此项目代为洪铟八字算命API微信小程序示例代码，洪铟八字算命应用在各大应用市场上市多年，累积用户过5000万，用户反馈口碑极好。  洪铟八字算命核心API包括八字算命、每天运势、八字合婚、周易起名、风水择日、阳宅风水、奇门遁甲、六爻排盘等功能。目前洪铟八字算命核心API已在阿里云市场和腾讯云市场上线，用户可以轻松将API提供的功能集成到自家产品中。无论IOS、android、小程序等都可轻松集成。
 阿里云市场地址：https://market.aliyun.com/products/57126001/cmapi027257.html?spm=5176.730005.productlist.d_cmapi027257.PGFO9m#sku=yuncode2125700007
 
+洪铟八字算命APP下载地址：http://android.myapp.com/myapp/detail.htm?apkName=net.hybz
+
+
 ## 2、目录结构：
 - images — 存放项目图片
 - pages — 存放项目页面相关文件
